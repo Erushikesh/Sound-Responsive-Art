@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sound-Responsive Art</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  
+  <div class="particles"></div>
+  
+  <div class="container">
+    <h1>Sound-Responsive Art</h1>
+    
+
+    <label for="audioInput" class="file-input-label" tabindex="0">
+      <span class="file-input-text">Choose Audio File</span>
+      <span class="file-input-icon">🎵</span>
+    </label>
+    <input type="file" id="audioInput" accept="audio/*" />
+    
+
+    <div class="customizer">
+      <label>Visualizer Style:</label>
+      <div class="custom-dropdown">
+        <span class="selected-option" data-value="bars">Bars</span>
+        <ul class="dropdown-options">
+          <li data-value="bars">Bars</li>
+          <li data-value="wave">Wave</li>
+          <li data-value="particles">Particles</li>
+          <li data-value="circle">Circle</li>
+          <li data-value="spiral">Spiral</li>
+        </ul>
+      </div>
+    </div>
+    
+
+    <button class="color-button">
+      <svg class="color-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+
+        <line x1="4" y1="12" x2="20" y2="12" stroke="white" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </button>
+    
+
+    <canvas id="artCanvas"></canvas>
+  </div>
+  
+
+  <div class="custom-cursor"></div>
+  
+
+  <script>
+    const fileLabel = document.querySelector('.file-input-label');
+    fileLabel.addEventListener('mousemove', (e) => {
+      const rect = fileLabel.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      const xPercent = (x / rect.width) * 100;
+      const yPercent = (y / rect.height) * 100;
+      fileLabel.style.setProperty('--x', `${xPercent}%`);
+      fileLabel.style.setProperty('--y', `${yPercent}%`);
+    });
+  </script>
+  
+
+  <script src="script.js"></script>
+</body>
+</html>
