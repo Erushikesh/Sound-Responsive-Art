@@ -13,4 +13,4 @@
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/Sound-Responsive-Art.git
+   git clone https://github.com/Erushikesh/Sound-Responsive-Art.git
